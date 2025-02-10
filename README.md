@@ -1,2 +1,2 @@
 # Spring_batch_Poc
-this is Poc for spring batch to treat 2000 employees from a csv and start the task whether sheduled or through a WS
+this is my batch processing POC , i am treating abt 2000 lines of Employees and i want to excute it in a reasonable time , we set up the item reader, item writer,and item processor, we set the Step to run those tasks and call the job that should take care of the Step , a job can have multiple steps,i also used taskExcutor to parallelize the excution of these tasks.
