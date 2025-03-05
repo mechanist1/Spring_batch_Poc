@@ -2,6 +2,7 @@ package org.example.demo_spring_batch;
 
 
 
+import org.example.demo_spring_batch.Direct.EmployeeProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.*;
@@ -20,7 +21,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionManager;
 
 
 @Configuration
@@ -87,7 +87,7 @@ public class BatchConfig {
     @Bean
     public Step importStep(){
         return new StepBuilder("Step1",jobRepository)
-                .<Employee,Employee>chunk(3,platformTransactionManager).reader(EmployeeReader())
+                .<Employee,Employee>chunk(30,platformTransactionManager).reader(EmployeeReader())
                 .processor(EmployeeProcessor())
                 .writer(write())
                 .taskExecutor(taskExecutor())

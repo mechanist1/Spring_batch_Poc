@@ -1,0 +1,4 @@
+{
+  "input": "Begin ------end",
+  "output":"use jdbc to connect to the db and then use the query excutor to excute the SQL query"
+}
